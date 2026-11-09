@@ -1,0 +1,28 @@
+<!doctype html><html><head><meta charset="utf-8"><link rel="stylesheet" href="popup.css"></head>
+<body>
+<header><img src="icons/logo.svg" class="logo"><b>TabTidy</b><span id="count"></span><button id="tabSettings" class="ghost">⚙️</button></header>
+<main id="mainView">
+  <input id="search" placeholder="🔍 Search title or URL…">
+  <div class="row">
+    <select id="groupBy"><option value="category">By topic</option><option value="domain">By domain</option><option value="window">By window</option><option value="none">No grouping</option></select>
+    <select id="status"><option value="all">All tabs</option><option value="idle">Idle &gt; 30 min</option><option value="dupes">Duplicates</option><option value="sleeping">Sleeping</option><option value="audible">Playing audio</option><option value="pinned">Pinned</option></select>
+  </div>
+  <div class="row actions">
+    <button id="selAll">☑ All</button><button id="doGroup">🧩 Group</button><button id="doSleep">💤 Sleep</button><button id="doClose" class="danger">✖ Close</button>
+  </div>
+  <div class="row actions"><button id="autoGroup">✨ Auto-group all by topic</button><button id="ungroup">Ungroup all</button></div>
+  <div id="list"></div>
+</main>
+<main id="settingsView" hidden>
+  <label><input type="checkbox" id="autoClose"> Auto-handle unused tabs</label>
+  <label>After <input type="number" id="idleMinutes" min="5" style="width:60px"> minutes unused</label>
+  <label><input type="checkbox" id="sleepInstead"> Sleep (discard) instead of closing</label>
+  <label><input type="checkbox" id="keepPinned"> Keep pinned tabs</label>
+  <label><input type="checkbox" id="keepAudible"> Keep tabs playing audio</label>
+  <label><input type="checkbox" id="keepGrouped"> Keep grouped tabs</label>
+  <label>Never close these domains (comma-separated)<input id="whitelist" placeholder="gmail.com, notion.so"></label>
+  <button id="save">💾 Save</button>
+  <h4>Recently auto-closed</h4><div id="closedLog"></div>
+</main>
+<script src="categories.js"></script><script src="popup.js"></script>
+</body></html>
